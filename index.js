@@ -30,7 +30,7 @@ app.post("/connection_details", async (req, res) => {
   } catch {
     // If participant doesn't exist, we can continue
   }
-    at.addGrant({ DEFAULT_ROOM_NAME, roomJoin: true, canPublish: true, canSubscribe: true });
+    at.addGrant({ DEFAULT_ROOM_NAME, canUpdateOwnMetadata:true, canPublishData:true,roomJoin: true, canPublish: true, canSubscribe: true });
     if (metadata) {
         at.metadata = JSON.stringify({ character });
     }
