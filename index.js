@@ -28,7 +28,7 @@ app.post("/connection_details", async (req, res) => {
     await roomService.getParticipant(DEFAULT_ROOM_NAME, username);
     return res.status(401).json({ error: "Username already exists in room" });
   } catch {
-    // If participant doesn't exist, we can continue
+    // If participant doesn't exist, we can continue 
   }
   at.addGrant({
     DEFAULT_ROOM_NAME,
