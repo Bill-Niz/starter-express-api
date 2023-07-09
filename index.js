@@ -39,7 +39,7 @@ app.post("/connection_details", async (req, res) => {
     canSubscribe: true,
   });
   if (metadata) {
-    at.metadata = JSON.stringify({ character });
+    at.metadata = JSON.stringify(metadata);
   }
   res.send(JSON.stringify({ token: at.toJwt(), ws_url: wsUrl }));
 });
