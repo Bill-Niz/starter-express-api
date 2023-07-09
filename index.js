@@ -32,7 +32,7 @@ app.post("/connection_details", async (req, res) => {
   }
     at.addGrant({ DEFAULT_ROOM_NAME, roomJoin: true, canPublish: true, canSubscribe: true });
     if (metadata) {
-        at.metadata = metadata
+        at.metadata = JSON.stringify({ character });
     }
  
 
