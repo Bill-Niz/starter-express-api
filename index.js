@@ -33,7 +33,6 @@ app.post("/connection_details", async (req, res) => {
   at.addGrant({
     DEFAULT_ROOM_NAME,
     canUpdateOwnMetadata: true,
-    canPublishData: true,
     roomJoin: true,
     canPublish: true,
     canSubscribe: true,
