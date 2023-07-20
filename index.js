@@ -1,12 +1,15 @@
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
+import Gun from 'gun';
 import { AccessToken, RoomServiceClient } from "livekit-server-sdk";
+
 dotenv.config();
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(Gun.serve);
 
 const DEFAULT_ROOM_NAME = "#MainOffice";
 app.post("/connection_details", async (req, res) => {
@@ -36,6 +39,7 @@ app.post("/connection_details", async (req, res) => {
     roomJoin: true,
     canPublish: true,
     canSubscribe: true,
+    roomAdmin:true
   });
   if (metadata) {
     at.metadata = JSON.stringify(metadata);
@@ -49,6 +53,7 @@ app.all("/", (req, res) => {
 });
 
 const PORT = process.env.PORT || 3100;
-app.listen(PORT);
+const server = app.listen(PORT);
+Gun({	 web: server });
 
 console.log("Server started on port : " + PORT);
