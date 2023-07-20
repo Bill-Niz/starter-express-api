@@ -1,12 +1,11 @@
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
-import Gun from 'gun';
 import { AccessToken, RoomServiceClient } from "livekit-server-sdk";
 
 dotenv.config();
 const app = express();
-app.use(Gun.serve);
+//app.use(Gun.serve);
 app.use(cors());
 app.use(express.json());
 
@@ -54,6 +53,6 @@ app.all("/", (req, res) => {
 
 const PORT = process.env.PORT || 3100;
 const server = app.listen(PORT);
-Gun({	 web: server });
+//Gun({	 web: server });
 
 console.log("Server started on port : " + PORT);
