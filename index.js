@@ -6,10 +6,10 @@ import { AccessToken, RoomServiceClient } from "livekit-server-sdk";
 
 dotenv.config();
 const app = express();
-
+app.use(Gun.serve);
 app.use(cors());
 app.use(express.json());
-app.use(Gun.serve);
+
 
 const DEFAULT_ROOM_NAME = "#MainOffice";
 app.post("/connection_details", async (req, res) => {
