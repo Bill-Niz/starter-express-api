@@ -61,6 +61,6 @@ const s3 = {
   bucket: process.env.AWS_S3_BUCKET // The bucket you want to save into
 }
 console.log("🚀 ~ file: index.js:62 ~ s3:", s3)
-Gun({ web: server, s3});
+Gun({ web: server, s3, radisk:false});
 
 console.log("Server started on port : " + PORT);
